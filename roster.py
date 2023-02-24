@@ -22,7 +22,9 @@ def getRoster(team):
     for det in info:
       if det['data-stat'] == 'player':
         name = unidecode(det['csk'])
+        link = det.a['href']
         infoObj['player'] = name
+        infoObj['link'] = link[:-5]
       else:
         infoObj[det['data-stat']] = det.string
     if number:
@@ -31,4 +33,4 @@ def getRoster(team):
       roster['unregistered'].append(infoObj)
   # print(json.dumps(roster, sort_keys = True, indent = 4))
 
-getRoster('lac')
+# getRoster('lal')

@@ -21,7 +21,7 @@ def getStats(playerurl):
   rows = table.find_all('tr')
 
   for row in rows:
-    # need to create the build dict here in order to ensure return consistency
+    # need to create the build dict here in
     buildDict = {
       'age': 'N/A',
       'team_id': 'N/A',
