@@ -4,9 +4,12 @@ import json
 from unidecode import unidecode
 
 def getCareerStats(player):
-  url = "https://www.basketball-reference.com" + player + ".html"
+  url = f"https://www.basketball-reference.com{player}.html"
 
   result = requests.get(url)
+  # deal with an page that is not there
+  if result.status_code == 404:
+    return {}
 
   doc = BeautifulSoup(result.text, "html.parser")
 

@@ -3,10 +3,13 @@ import requests
 # import json
 
 def getStats(playerurl):
-  url = playerurl + ".html"
+  url = f"https://www.basketball-reference.com{playerurl}.html"
 
   # this is the requests that is going to the url and bringing back the html
   result = requests.get(url)
+  # deal with an page that is not there
+  if result.status_code == 404:
+    return {}
 
   # parse the html
   doc = BeautifulSoup(result.text, "html.parser")
