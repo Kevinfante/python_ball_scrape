@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import json
+from unidecode import unidecode
 
 def getCareerStats(player):
   url = "https://www.basketball-reference.com" + player + ".html"
@@ -20,6 +21,7 @@ def getCareerStats(player):
 
 
   statsDict = {}
+  statsDict['player'] = unidecode(name[0].string)
   statsDict['win_shares'] = ws[0].string
   statsDict['per'] = per[0].string
 
@@ -42,4 +44,4 @@ def getCareerStats(player):
 
   return statsDict
 
-# getCareerStats('/players/h/hachiru01')
+# getCareerStats('/players/d/doncilu01')
