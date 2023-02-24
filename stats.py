@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
-import json
+# import json
 
 def getStats(playerurl):
   url = playerurl + ".html"
@@ -21,6 +21,7 @@ def getStats(playerurl):
   rows = table.find_all('tr')
 
   for row in rows:
+    # need to create the build dict here in order to ensure return consistency
     buildDict = {
       'age': 'N/A',
       'team_id': 'N/A',
@@ -73,7 +74,7 @@ def getStats(playerurl):
     else:
       statsDict[year].append(buildDict)
 
-  print('dict: ', json.dumps(statsDict, sort_keys=True, indent=4))
+  # print('dict: ', json.dumps(statsDict, sort_keys=True, indent=4))
   return statsDict
 # getStats('https://www.basketball-reference.com/players/b/bookede01')
 # getStats('https://www.basketball-reference.com/players/s/simmobe01')
