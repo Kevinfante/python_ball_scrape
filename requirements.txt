@@ -1,0 +1,5 @@
+django
+djangorestframework
+beautifulsoup4
+requests
+pandas
