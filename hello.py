@@ -34,10 +34,17 @@ def getCurrStats(team,number):
   if number not in rosterData:
     return Response({}, status=404)
   data = stats.getStats(rosterData[number]['link'])
-  data = json.dumps(data)
+  data = json.dumps(data, indent=4, sort_keys=True)
   return Response(data, status = 200)
 
 @app.route('/stats/<string:team>/<int:number>/career')
-#def get career Stats for a player
+#def get career averages for a player
 def getCareer(team, number):
-   return 'exit'
+  rosterData = roster.getRoster(team)
+  number = str(number)
+  # need to put number as string for propper finding
+  if number not in rosterData:
+    return Response({}, status=404)
+  data = careerStats.getCareerStats(rosterData[number]['link'])
+  data = json.dumps(data, indent=4, sort_keys=True)
+  return Response(data, status = 200)
