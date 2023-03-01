@@ -10,18 +10,19 @@ def hello_world():
     return "<p>Hello, World!</p>"
 
 @app.route('/roster/<string:team>')
+# get the current roster for a team by passing in their team code
 def grabRoster(team):
     # let's take out roster and grab our roster using web scraping
   rosterData = roster.getRoster(team)
-
   if len(rosterData):
     return jsonify(rosterData)
   else:
      return jsonify(rosterData), 404
 
 @app.route('/stats/<string:team>/<int:number>')
-#first let's get the roster so that we can get the link
+# get the stats for a player by passing in their team code and current number
 def getCurrStats(team,number):
+  #first let's get the roster so that we can get the link
   rosterData = roster.getRoster(team)
   number = str(number)
   # need to put number as string for propper finding
@@ -32,7 +33,7 @@ def getCurrStats(team,number):
   return jsonify(data)
 
 @app.route('/stats/<string:team>/<int:number>/career')
-#def get career averages for a player
+#def get career averages for a player by passing in their current team code and current number
 def getCareer(team, number):
   rosterData = roster.getRoster(team)
   number = str(number)
@@ -40,7 +41,6 @@ def getCareer(team, number):
   if number not in rosterData:
     return jsonify({}), 404
   data = careerStats.getCareerStats(rosterData[number]['link'])
-  # data = json.dumps(data, indent=4, sort_keys=True)
   return jsonify(data)
 
 if __name__ == "__main__":
