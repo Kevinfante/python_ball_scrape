@@ -4,6 +4,7 @@ import json
 from unidecode import unidecode
 import util
 
+
 def getRoster(team, year = util.getCurrYear()):
   url = f'https://www.basketball-reference.com/teams/{team.upper()}/{year}.html'
 
