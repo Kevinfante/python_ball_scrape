@@ -2,14 +2,16 @@ from bs4 import BeautifulSoup
 import requests
 import json
 from unidecode import unidecode
+import util
 
-def getRoster(team, year = 2023):
+def getRoster(team, year = util.getCurrYear()):
   url = f'https://www.basketball-reference.com/teams/{team.upper()}/{year}.html'
 
   result = requests.get(url)
 
   # deal with an page that is not there
   if result.status_code == 404:
+    # print(f'result: {result.text}')
     return {}
 
   doc = BeautifulSoup(result.text, 'html.parser')
