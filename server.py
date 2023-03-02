@@ -11,12 +11,24 @@ def hello_world():
 
 @app.route('/roster/<string:team>', methods = ['GET'])
 # get the current roster for a team by passing in their team code
-@exception_handler
+# @exception_handler
 def grabRoster(team):
   # check if there is an inputed older year
   year = request.args.get('year', util.getCurrYear())
+  if type(year) == str and not year.isnumeric():
+    # print('entered a string')
+    raise ValueError('please enter a valid year.')
+
+  #  lets validate the input team code
+  validate_team = util.validate_team_code(team.upper())
+  if not validate_team:
+    raise ValueError("please input a valid team code.")
+
+  updated_team = util.validate_year(team, year)
+  if not updated_team:
+     raise ValueError(f"please input a valid year for {team}")
   # let's take out roster and grab our roster using web scraping
-  rosterData = getRoster(team, year)
+  rosterData = getRoster(updated_team, year)
   if len(rosterData):
     return jsonify(rosterData)
   else:
