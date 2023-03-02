@@ -93,7 +93,8 @@ def getRoster(team, year = util.getCurrYear()):
   # deal with an page that is not there
   if result.status_code == 404:
     # print(f'result: {result.text}')
-    return {}
+    # return {}
+    raise ValueError('please check team and/or year values')
 
   doc = BeautifulSoup(result.text, 'html.parser')
 

@@ -1,5 +1,3 @@
-django
-djangorestframework
 Flask
 beautifulsoup4
 requests
