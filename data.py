@@ -98,14 +98,16 @@ def getRoster(team, year = util.getCurrYear()):
 
   doc = BeautifulSoup(result.text, 'html.parser')
 
-  roster = {'unregistered' : []}
+  # roster = {'unregistered' : []}
+  roster = {}
 
   rosterTable = doc.select('#roster > tbody')[0]
   players = rosterTable.find_all('tr')
 
   for player in players:
-    # print('player: ', player.th.string)
     number = player.th.string
+    if not number:
+      continue
     infoObj = {}
     info = player.find_all("td")
     for det in info:
@@ -116,10 +118,11 @@ def getRoster(team, year = util.getCurrYear()):
         infoObj['link'] = link[:-5]
       else:
         infoObj[det['data-stat']] = det.string
-    if number:
-      roster[number] = infoObj
-    else:
-      roster['unregistered'].append(infoObj)
+    roster[number] = infoObj
+    # if number:
+    #   roster[number] = infoObj
+    # else:
+    #   roster['unregistered'].append(infoObj)
   # print(json.dumps(roster, sort_keys = True, indent = 4))
   return roster
 
