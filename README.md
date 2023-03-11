@@ -412,7 +412,8 @@ This is a Flask project that was built to give users information and stats of th
 
 #### Example
   #### Request: ``/stats/MEM/3 ``
-  #### Return: `` {
+  #### Return: ``
+  {
     "name": "Ja Morant",
     "2019_20": [
         {
