@@ -20,7 +20,7 @@ def getStats(playerurl):
   name = doc.select("#meta > div:nth-child(2) > h1 > span")
   # thie is the obj that will be returned
   statsDict = {}
-
+  statsDict['name'] = name[0].text
   # select the 'tbody' that holds the table
   table = doc.select('#per_game > tbody')[0]
   rows = table.find_all('tr')
