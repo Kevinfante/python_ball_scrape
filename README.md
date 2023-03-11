@@ -66,7 +66,9 @@ This is a Flask project that was built to give users information and stats of th
 
 #### Example
   #### Request: `` /roster/LAL ``
-  #### resultsL ``{
+  #### Response:
+  ```
+  {
     "1": {
         "birth_country": "us",
         "birth_date": "February 23, 1996",
@@ -243,10 +245,13 @@ This is a Flask project that was built to give users information and stats of th
         "weight": "215",
         "years_experience": "4"
     }
-} ``
+}
+```
 
   #### Reqests: ``/roster/LAL?year=1998``
-  #### Result: `` {
+  #### Response:
+  ```
+   {
     "17": {
         "birth_country": "ca",
         "birth_date": "July 24, 1969",
@@ -390,9 +395,10 @@ This is a Flask project that was built to give users information and stats of th
         "weight": "170",
         "years_experience": "4"
     }
-} ``
+}
+```
 
-  #### NOTE: IF a player has not played or has not been assigned a jersey number for their team, they will not show up in the dictionary
+#### NOTE: IF a player has not played or has not been assigned a jersey number for their team, they will not show up in the dictionary
 
 ### Get Stats
 | HTTP Request | Endpoint | Description |
@@ -412,8 +418,8 @@ This is a Flask project that was built to give users information and stats of th
 
 #### Example
   #### Request: ``/stats/MEM/3 ``
-  #### Return:
-  ``
+  #### Response:
+  ```
   {
     "name": "Ja Morant",
     "2019_20": [
@@ -552,5 +558,6 @@ This is a Flask project that was built to give users information and stats of th
             "trb_per_g": "6.0"
         }
     ]
-} ``
-  #### NOTE: if a player was traded mid-season, that year will have multiple dictionaries in the List for that year, one for their stats during their time with each team and one for their total averages during the season
+}
+```
+#### NOTE: if a player was traded mid-season, that year will have multiple dictionaries in the List for that year, one for their stats during their time with each team and one for their total averages during the season
