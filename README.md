@@ -2,13 +2,16 @@
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
 
 ## Overview
-This is a Flask project that was built to give users information and stats of the NBA. There are two endpoints, one that focuses on rosters and one that focuses on player stats.
+This is a flask project that scrapes basketball reference to give users information about nba rosters and nba player stats
 
 ## Setup
 1. Clone down this repo.
 1. Create a virtual enviornment to prevent any errors due to dependencies.
+ 1. Steps to create virtual enviornment:
+    1.
 1. After the virtualenv is running, install dependincies with ``pip install -r requirements.txt``.
 1. start the server with ``python server.py``.
+1. the server will now be running on localhost:8000
 
 ## Endpoints
 
