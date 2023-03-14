@@ -2,13 +2,15 @@
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
 
 ## Overview
-This is a flask project that scrapes basketball reference to give users information about nba rosters and nba player stats
+This is a flask project that scrapes basketball reference to give users NBA roster and player data
 
 ## Setup
 1. Clone down this repo.
 1. Create a virtual enviornment to prevent any errors due to dependencies.
  1. Steps to create virtual enviornment:
-    1.
+    1. Make sure that python3 is installed on your device and navigate to the directory where the project is located
+    1. Once in the desired directory, run ``python3 -m {virtual env name} .{virtual env name}``  for example: `` python3 -m env .env`` to create the virtual enviornment
+    1. Activate the virtual enviornment by running `` . .{virtual env name}/bin/activate `` For Example: `` . .env/bin/activate ``
 1. After the virtualenv is running, install dependincies with ``pip install -r requirements.txt``.
 1. start the server with ``python server.py``.
 1. the server will now be running on localhost:8000
@@ -72,6 +74,7 @@ This is a flask project that scrapes basketball reference to give users informat
   #### Response:
   ```
   {
+    "Team" : "Los Angeles Lakers",
     "1": {
         "birth_country": "us",
         "birth_date": "February 23, 1996",
@@ -255,6 +258,7 @@ This is a flask project that scrapes basketball reference to give users informat
   #### Response:
   ```
    {
+    "Team": "Los Angeles Lakers",
     "17": {
         "birth_country": "ca",
         "birth_date": "July 24, 1969",
