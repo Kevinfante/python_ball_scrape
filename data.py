@@ -100,7 +100,8 @@ def getRoster(team, year = util.getCurrYear()):
 
   # roster = {'unregistered' : []}
   roster = {}
-
+  team_name = doc.select('#meta > div:nth-child(2) > h1:nth-child(1) > span:nth-child(2)')
+  roster['team'] = team_name[0].string
   rosterTable = doc.select('#roster > tbody')[0]
   players = rosterTable.find_all('tr')
 

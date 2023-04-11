@@ -18,7 +18,10 @@ def getRoster(team, year = util.getCurrYear()):
   doc = BeautifulSoup(result.text, 'html.parser')
 
   roster = {'unregistered' : []}
-
+  team_name = doc.select('#meta > div:nth-child(2) > h1:nth-child(1) > span:nth-child(2)')
+  # roster[team] = team_name[0].string
+  print('here i am')
+  print(f'team: {team_name}')
   rosterTable = doc.select('#roster > tbody')[0]
   players = rosterTable.find_all('tr')
 
