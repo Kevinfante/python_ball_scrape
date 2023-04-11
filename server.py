@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 import util
 from data import getCareerStats, getRoster, getStats
-from decorators import exception_handler
+from decorators import logger
 # from decorators import Error_Handler
 
 app = Flask(__name__)
@@ -12,7 +12,7 @@ def hello_world():
 
 
 @app.route('/stats/<string:team>/<string:number>', methods=['GET'])
-@exception_handler
+@logger
 # get the stats for a player by passing in their team code and current number
 def grabStats(team,number):
   # let's see if the user want's to see the career averages, else default to false
@@ -31,7 +31,7 @@ def grabStats(team,number):
 
 @app.route('/roster/<string:team>', methods = ['GET'])
 # get the current roster for a team by passing in their team code
-@exception_handler
+@logger
 def grabRoster(team):
   # check if there is an inputed older year
   year = request.args.get('year', util.getCurrYear())
